@@ -1,0 +1,138 @@
+import time
+import pyautogui
+import cv2
+from datetime import datetime
+import os
+import schedule
+
+semana = datetime.now().weekday()
+horas = datetime.now().hour
+min = datetime.now().minute
+
+def entar(aula):
+    time.sleep(2)
+    os.startfile(aula)
+    time.sleep(7)
+    pyautogui.hotkey('ctrl', 'e')
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'd')
+    time.sleep(1)
+    pyautogui.click(x=1276, y=616)
+    time.sleep(2)
+    pyautogui.click(x=1823, y=996)
+    time.sleep(2)
+    pyautogui.click(x=1666, y=919)
+    time.sleep(2)
+    pyautogui.typewrite('Bom dia prof!')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+def Aulas():
+    if semana == 0:
+        if horas >= 7 and horas < 8:  # lab
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 8 and horas < 9:  # gramatica
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 9 and horas < 10:  # fisica a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 10 and horas < 11:  # hist B
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 11 and horas < 12:  # fisica a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 12 and horas < 13:  # hist a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+    # Terça:
+    elif semana == 1:
+        if horas >= 7 and horas < 8:  # bio a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 8 and horas < 9:  # filo
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 9 and horas < 10:  # socio
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 10 and horas < 11:  # hist a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 11 and horas < 12:  # red
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 12 and horas < 13:  # mat a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+    # Quarta:
+    elif semana == 2:
+        if horas >= 7 and horas < 8:  # prova
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 8 and horas < 9:  # prova
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 9 and horas < 10:  # qmc a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 10 and horas < 11:  # fisica a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 11 and horas < 12:  # geo a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 12 and horas < 13:  # bio b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+    # Quinta:
+    elif semana == 3:
+        if horas >= 7 and horas < 8:  # bio a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 8 and horas < 9:  # fis b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 9 and horas < 10:  # lit
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 10 and horas < 11:  # mat a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 11 and horas < 12:  # gram
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas >= 12 and horas < 13:  # mat b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+    # Sexta:
+    elif semana == 4:
+        if horas >= 7 and horas < 8:  # geo b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas > 8 and horas < 9:  # qmc b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas > 9 and horas < 10:  # qmc a
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas > 10 and horas < 11:  # red
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas > 11 and horas < 12:  # lab
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+        elif horas > 12 and horas < 13:  # mat b
+            aula = "sua aula" # <-- link da aula
+            entar(aula)
+    # Sabado/Domingo:
+    elif semana == 5 or semana == 6:
+        print(f'É fim de semana velho...não tem aula...pode ir dormir...rlxx')
+
+schedule.every(1).hour.do(Aulas)
+
+while 1:
+    schedule.run_pending()
+    time.sleep(5)
